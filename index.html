@@ -27,14 +27,12 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--bg-primary);
-            overflow-x: hidden;
         }
 
-        /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -93,54 +91,19 @@
             color: var(--primary-color);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            color: white;
+            text-align: center;
+            position: relative;
         }
 
         .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 2;
-            position: relative;
             max-width: 800px;
             padding: 0 2rem;
         }
@@ -149,39 +112,29 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
         }
 
         .hero-subtitle {
             font-size: clamp(1.2rem, 2.5vw, 1.5rem);
             margin-bottom: 2rem;
             opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            gap: 1rem;
-            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .btn {
+            display: inline-block;
             padding: 1rem 2rem;
+            margin: 0.5rem;
             border: none;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .btn-primary {
             background: rgba(255, 255, 255, 0.2);
             color: white;
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
@@ -204,7 +157,6 @@
         /* Sections */
         .section {
             padding: 5rem 0;
-            position: relative;
         }
 
         .container {
@@ -249,29 +201,16 @@
             position: relative;
         }
 
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            background: var(--gradient);
-            border-radius: 20px;
-            z-index: -1;
-        }
-
-        .about-image img {
+        .about-image .placeholder {
             width: 100%;
             height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
             background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #999;
-            font-size: 2rem;
+            font-size: 3rem;
         }
 
         .about-text h3 {
@@ -316,7 +255,6 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .project-card:hover {
@@ -332,23 +270,6 @@
             justify-content: center;
             color: white;
             font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .project-card:hover .project-image::before {
-            left: 100%;
         }
 
         .project-content {
@@ -403,6 +324,10 @@
         /* Contact Section */
         .contact {
             background: var(--bg-dark);
+            color: white;
+        }
+
+        .contact .section-title {
             color: white;
         }
 
@@ -464,7 +389,6 @@
             background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
         }
 
         .form-group {
@@ -485,7 +409,6 @@
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            backdrop-filter: blur(10px);
         }
 
         .form-group input::placeholder,
@@ -497,29 +420,6 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Mobile Responsive */
@@ -537,33 +437,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-
             .projects-grid {
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: var(--gradient);
-            z-index: 1001;
-            transition: width 0.3s ease;
-        }
     </style>
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -583,14 +463,12 @@
             <h1>Maya Chen</h1>
             <p class="hero-subtitle">UX Designer & Creative Innovator</p>
             <p style="opacity: 0.8; margin-bottom: 2rem;">Crafting digital experiences that delight users and drive business growth</p>
-            <div class="hero-cta">
+            <div>
                 <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i>
-                    View My Work
+                    <i class="fas fa-rocket"></i> View My Work
                 </a>
                 <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i>
-                    Get In Touch
+                    <i class="fas fa-envelope"></i> Get In Touch
                 </a>
             </div>
         </div>
@@ -599,14 +477,14 @@
     <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <div class="about-image fade-in">
-                    <div style="width: 100%; height: 400px; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 2rem;">
+                <div class="about-image">
+                    <div class="placeholder">
                         <i class="fas fa-user"></i>
                     </div>
                 </div>
-                <div class="about-text fade-in">
+                <div class="about-text">
                     <h3>Passionate About Creating Meaningful Experiences</h3>
                     <p>With over 5 years of experience in UX design, I specialize in creating intuitive and engaging digital experiences. My approach combines user research, design thinking, and cutting-edge technology to solve complex problems.</p>
                     <p>I believe that great design is not just about aesthetics—it's about understanding people, their needs, and creating solutions that make their lives better. Every project I work on starts with empathy and ends with impact.</p>
@@ -630,9 +508,9 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
+            <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card fade-in">
+                <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
@@ -657,7 +535,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-laptop"></i>
                     </div>
@@ -682,7 +560,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
@@ -713,9 +591,9 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title fade-in" style="color: white;">Let's Work Together</h2>
+            <h2 class="section-title">Let's Work Together</h2>
             <div class="contact-content">
-                <div class="contact-info fade-in">
+                <div class="contact-info">
                     <h3>Get In Touch</h3>
                     <p style="opacity: 0.8; margin-bottom: 2rem;">Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with amazing teams.</p>
                     
@@ -765,7 +643,7 @@
                     </div>
                 </div>
 
-                <form class="contact-form fade-in" id="contactForm">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -791,9 +669,8 @@
         </div>
     </section>
 
-    <!-- JavaScript -->
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -810,71 +687,16 @@
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
-            const scrollProgress = document.getElementById('scrollProgress');
-            
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-
-            // Update scroll progress bar
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            scrollProgress.style.width = scrolled + '%';
-        });
-
-        // Active navigation link
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', function() {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
         });
 
         // Form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simulate form submission
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             
@@ -893,54 +715,6 @@
                 }, 2000);
             }, 1500);
         });
-
-        // Add some interactive particles to the hero section
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: absolute;
-                width: 4px;
-                height: 4px;
-                background: rgba(255, 255, 255, 0.8);
-                border-radius: 50%;
-                pointer-events: none;
-                animation: particle-float 3s linear infinite;
-            `;
-            
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDelay = Math.random() * 3 + 's';
-            
-            document.querySelector('.hero').appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 3000);
-        }
-
-        // Create particles periodically
-        setInterval(createParticle, 2000);
-
-        // Add particle animation keyframes
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes particle-float {
-                0% {
-                    transform: translateY(100vh) rotate(0deg);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 1;
-                }
-                90% {
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(-100px) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
